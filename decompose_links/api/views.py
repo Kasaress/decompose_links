@@ -1,8 +1,17 @@
+import logging
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .serializers import LinksSerializer
+
+logging.basicConfig(
+    level=logging.INFO,
+    filename='main.log',
+    filemode='a',
+    format='%(asctime)s, %(levelname)s, %(message)s, %(name)s'
+)
 
 
 class LinksView(APIView):
@@ -12,7 +21,14 @@ class LinksView(APIView):
         serializer = LinksSerializer(data=request.data)
         serializer.is_valid()
         if serializer.is_valid():
+            link_as_dick = {
+                'protocol': serializer.validated_data.get('link').split('://')[0],
+                'domen': serializer.validated_data.get('link').split('://')[1].split('/')[0],
+                'path': serializer.validated_data.get('link').split('://')[1].split('/')[1].split('?')[0],
+                'params': serializer.validated_data.get('link').split('://')[1].split('/')[1].split('?')[1]
+            }
+            logging.info(link_as_dick)
             return Response(
-                'Ссылка залогирована',
+                f'Ссылка залогирована: {link_as_dick}',
                 status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
