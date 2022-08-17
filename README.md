@@ -33,14 +33,14 @@ http://127.0.0.1:8000/api/v1/links/
 ```
 
 ### Возможные ключи в словаре:
-'scheme': протокол
-'netloc': доменное имя
-'path': путь
-'params': параметры последнего элемента пути
-'query': компоненты запроса
-'fragment': идентификатор фрагмента
-'is_git': признак того, что ссылка ведет на git
-'git_name': название репозитория на git
+- 'scheme': протокол
+- 'netloc': доменное имя
+- 'path': путь
+- 'params': параметры последнего элемента пути
+- 'query': компоненты запроса
+- 'fragment': идентификатор фрагмента
+- 'is_git': признак того, что ссылка ведет на git
+- 'git_name': название репозитория на git
 
 ### Настройка и запуск сервера: 
 **Клонировать репозиторий**
@@ -60,26 +60,26 @@ http://127.0.0.1:8000/api/v1/links/
 pip install -r requirements.txt
 ```
 
-**Перейдите в основную папку:**
+**Перейти в основную папку:**
 ```bash
 cd decompose_links
 ```
 
-**Запустите проект:**
+**Запустить проект:**
 ```bash
 python manage.py runserver
 ```
 
 ### Зависимости
-requests==2.26.0
-django==2.2.16
-djangorestframework==3.12.4
-python-dotenv==0.20.0
+- requests==2.26.0
+- django==2.2.16
+- djangorestframework==3.12.4
+- python-dotenv==0.20.0
 
 ### Технологии:
-_Python 3.7
-Django 2.2.16
-Djangorestframework 3.12.4
+- Python 3.7
+- Django 2.2.16
+- Djangorestframework 3.12.4
 
 
 
